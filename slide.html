@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Slides</title>
+        <link rel="stylesheet" href="styles/slidy.css" type="text/css">
+        <link rel="stylesheet" href="styles/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="styles/style.css" type="text/css">
+        <script src="scripts/jquery.min.js"></script>
+    </head>
+    <body>
+    </body>
+</html>
+<script src="scripts/slidy.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    $(document).ready(function() {
+        var storedHTML = sessionStorage.getItem('slides');
+        var isSlidyInitialized = false;
+        if (storedHTML) {
+            $('body').empty();
+            $('body').html(storedHTML);
+            // Function to check if the DOM is ready for Slidy
+            function isDOMReadyForSlidy() {
+                return $('.slides').length > 0 || $('.slides div').length > 0;
+            }
+            // Function to initialize Slidy
+            function initializeSlidy() {
+                console.log(w3c_slidy);
+                if (!isSlidyInitialized &&  typeof w3c_slidy === 'object') {
+                    try {
+                        w3c_slidy.collect_slides();
+                        w3c_slidy.goto_slide(0);
+                        isSlidyInitialized = true;  // Mark Slidy as initialized
+                        console.log('Slidy initialized successfully');
+                    } catch (error) {
+                        console.error('Error initializing Slidy:', error);
+                    }
+                } else {
+                    console.error('Slidy.js is not loaded or not available');
+                }
+            }
+
+            // Attempt to initialize Slidy after a short delay
+            setTimeout(initializeSlidy, 100);
+
+            // Fallback: If Slidy fails to initialize, try again when all resources are loaded
+            $(window).on('load', function() {
+                if (typeof w3c_slidy.slide_number === 'undefined') {
+                    console.log('Attempting to re-initialize Slidy');
+                    initializeSlidy();
+                }
+            });
+        }
+    });
+</script>

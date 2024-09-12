@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Slide motor</title>
+</head>
+<body style="height: 100dvh;">
+    <div class="row">
+        <nav class="navbar navbar-dark bg-dark" style="height: 8dvh;">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="#" alt="Logo" width="30" height="24">
+                </a>
+            </div>
+        </nav>
+    </div>
+    <div class="container main-screen">
+        <div class="row">
+            <div class="grid">
+                <button type="button" class="btn  btn-outline-primary" id="" data-bs-toggle="modal" data-bs-target="#form_import">Import file</button>
+                <button type="button" class="btn  btn-outline-primary" id="runner">run slide</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 d-flex flex-column">
+                <div class="center-text-area">
+                    <div class="flex-fill" id="left-div">
+                        <form action="#" method="post" id="slide_form">
+                            <div class="mb-3">
+                                <!-- <label class="form-label">Write the slides here</label> -->
+                                <textarea class="form-control" id="code_to_run" name="code_to_run" rows="25"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex flex-column">
+                <div class="flex-fill extrait-slides" id="right-div">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="form_import" tabindex="-1"  aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Form to </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="post" id="form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="formFileMultiple" class="form-label">Select the file to import</label>
+                            <input class="form-control" type="file" id="fileInput">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="scripts/bootstrap.bundle.min.js"></script>
+<script src="scripts/bootstrap.min.js"></script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/function.js"></script>

@@ -1,0 +1,29 @@
+.title{
+    border: solid;
+    width: 100% ;
+    margin : 1%;
+    padding: 1%;
+    font-size: larger;
+}
+
+.title-center {
+    @extend .title;
+    text-align: center;
+}   
+
+.row{
+    padding-bottom: 2%;
+}
+
+.navbar{
+    width: 100%;
+}
+
+
+
+.extrait-slides{
+    border: solid rgba(159, 157, 154, 0.52);
+    border-radius: 15px;
+    height: 60dvh;
+    overflow-y: auto;
+}
