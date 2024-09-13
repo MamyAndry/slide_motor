@@ -10,6 +10,9 @@
         <script src="scripts/jquery.min.js"></script>
     </head>
     <body>
+        <div id="slide-container" style="display: none;">
+
+        </div>
     </body>
 </html>
 <script src="scripts/slidy.js" type="text/javascript" charset="utf-8"></script>
@@ -18,8 +21,8 @@
         var storedHTML = sessionStorage.getItem('slides');
         var isSlidyInitialized = false;
         if (storedHTML) {
-            $('body').empty();
-            $('body').html(storedHTML);
+            $('#slide-container').empty();
+            $('#slide-container').html(storedHTML);
             // Function to check if the DOM is ready for Slidy
             function isDOMReadyForSlidy() {
                 return $('.slides').length > 0 || $('.slides div').length > 0;
@@ -31,6 +34,7 @@
                     try {
                         w3c_slidy.collect_slides();
                         w3c_slidy.goto_slide(0);
+                        $('#slide-container').css({"display":"block"})
                         isSlidyInitialized = true;  // Mark Slidy as initialized
                         console.log('Slidy initialized successfully');
                     } catch (error) {

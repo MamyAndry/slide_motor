@@ -8,6 +8,28 @@ function readFile(){
     return "";
 }
 
+function insertHtmlAtCursor(htmlTag) {
+    var textarea = $("# ");
+
+    // Get the current position of the cursor
+    var startPos = textarea.selectionStart;
+    var endPos = textarea.selectionEnd;
+
+    // Get the current value of the textarea
+    var textBefore = textarea.value.substring(0, startPos);
+    var textAfter = textarea.value.substring(endPos, textarea.value.length);
+
+    // Insert the HTML tag at the cursor position
+    textarea.value = textBefore + htmlTag + textAfter;
+
+    // Move the cursor back inside the inserted HTML tag
+    var cursorPos = startPos + htmlTag.length;
+    textarea.setSelectionRange(cursorPos, cursorPos);
+
+    // Focus the textarea again
+    textarea.focus();
+}
+
 function visualisation(){
     $("#right-div").empty();
     let extrait = $("#code_to_run").val();
